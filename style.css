@@ -1,5 +1,4 @@
 header {
-  font-family: "Shrikhand", sans-serif;
   margin: 0px;
   padding: 1em;
   text-align: center;
@@ -64,6 +63,11 @@ body .fonctionnement h2 {
   margin-top: 0;
   padding-left: 2.5em;
 }
+@media (max-width: 800px) {
+  body .fonctionnement h2 {
+    padding-left: 0.5em;
+  }
+}
 body .fonctionnement .etapes {
   display: flex;
   margin: auto;
@@ -73,6 +77,7 @@ body .fonctionnement .etapes {
   body .fonctionnement .etapes {
     flex-direction: column;
     gap: 1.5em;
+    padding-left: 0%;
   }
 }
 body .fonctionnement .etapes ol {
@@ -126,6 +131,7 @@ body .affiche-restaurants .liste-restaurants {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  justify-content: space-evenly;
 }
 @media (max-width: 800px) {
   body .affiche-restaurants .liste-restaurants {
@@ -142,6 +148,11 @@ body .affiche-restaurants .restaurant {
   color: inherit;
   display: block;
   width: 45%;
+}
+@media (max-width: 800px) {
+  body .affiche-restaurants .restaurant {
+    width: 100%;
+  }
 }
 body .affiche-restaurants .restaurant:hover {
   transform: scale(1.02);
