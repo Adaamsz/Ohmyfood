@@ -93,7 +93,11 @@ body .fonctionnement .etapes li {
   border-radius: 1em;
   position: relative;
 }
-body .fonctionnement .etapes::before {
+body .fonctionnement .etapes i {
+  margin-right: 1em;
+  color: #7e7e7e;
+}
+body .fonctionnement .etapes i::before {
   display: flex;
   justify-content: center;
   background: #9356dc;
@@ -106,10 +110,6 @@ body .fonctionnement .etapes::before {
   position: absolute;
   counter-increment: compteListe 1;
   content: counter(compteListe) " ";
-}
-body .fonctionnement .etapes i {
-  margin-right: 1em;
-  color: #7e7e7e;
 }
 body .affiche-restaurants {
   background-color: #f6f6f6;

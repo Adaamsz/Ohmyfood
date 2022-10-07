@@ -128,6 +128,11 @@ body .menu {
   max-width: 100%;
   animation-fill-mode: both;
 }
+@media (max-width: 800px) {
+  .le-menu {
+    width: 92%;
+  }
+}
 .le-menu:hover .validation {
   margin-right: -1rem;
 }
