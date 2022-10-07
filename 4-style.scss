@@ -88,12 +88,39 @@ body {
     max-width: 100%;
     overflow: hidden;
     padding: 0 1em;
-    margin: 0px 0% 0% 4%;
+    width: 100%;
 }
 
 .les-menus {
     column-gap: 1em;
     display: flex;
+    justify-content: space-around;
+}
+
+.validation {
+    background-color: #99e2d0;
+    margin: -1rem -5rem -1rem 1rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .5s;
+}
+
+.iconev {
+    height: 1.6rem;
+    width: 1.6rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transform: rotate(180deg);
+    transition-duration: .5s;
+}
+
+.menuItem__icon {
+    color: #99e2d0;
 }
 
 .le-menu {
@@ -106,6 +133,20 @@ body {
     overflow: hidden;
     cursor: pointer;
     max-width: 100%;
+    animation-fill-mode: both;
+        
+    @media (max-width:800px) {
+        width: 92%;
+    }
+
+    &:hover {
+        .validation {
+            margin-right:-1rem;
+        }
+        .iconev {
+            transform: rotate(0deg);
+    } 
+}
 
     .texte-description {
         white-space: nowrap;
@@ -129,6 +170,28 @@ body {
         justify-content: flex-end;
         align-items: flex-end;
         padding-left: 0.5em;
+    }
+}
+
+.bouton-coeur{
+    border: 0 solid transparent;
+    i {
+    font-size: 2em;
+    position: absolute;
+    right: 1.75em;
+    top: 7%;
+    }
+
+    .fas {
+        color: transparent;
+        background-image: linear-gradient(0deg,#9356dc,#ff79da);
+        background-clip: text;
+        -webkit-background-clip:text;
+        opacity: 0;
+    }
+    &:hover .fas {
+        transition: 0.5s;
+        opacity: 1;
     }
 }
 
