@@ -118,7 +118,7 @@ body .affiche-restaurants .titre-resto {
   font-size: 115%;
 }
 body .affiche-restaurants .titre-resto h2 {
-  margin: 0;
+  margin-top: 0;
 }
 body .affiche-restaurants .liste-restaurants {
   column-gap: 2rem;
