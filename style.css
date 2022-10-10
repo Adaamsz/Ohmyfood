@@ -3,7 +3,6 @@ header {
   padding: 1em;
   text-align: center;
   position: relative;
-  z-index: 1000;
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.25);
 }
 
@@ -50,9 +49,9 @@ body .reservation button:hover {
 }
 body .fonctionnement {
   padding: 2em 1em;
-  position: relative;
   margin: auto;
-  width: 65%;
+  max-width: 1280px;
+  position: relative;
 }
 @media (max-width: 800px) {
   body .fonctionnement {
@@ -61,7 +60,6 @@ body .fonctionnement {
 }
 body .fonctionnement h2 {
   margin-top: 0;
-  padding-left: 2.5em;
 }
 @media (max-width: 800px) {
   body .fonctionnement h2 {
@@ -70,10 +68,8 @@ body .fonctionnement h2 {
 }
 body .fonctionnement .etapes {
   display: flex;
-  margin: auto;
-  position: relative;
-  display: flex;
-  list-style: none;
+  margin: 0;
+  padding: 0;
   counter-reset: compteListe;
 }
 @media (max-width: 800px) {
@@ -93,37 +89,41 @@ body .fonctionnement .etapes li {
   border-radius: 1em;
   position: relative;
 }
-body .fonctionnement .etapes i {
-  margin-right: 1em;
-  color: #7e7e7e;
-}
-body .fonctionnement .etapes i::before {
-  display: flex;
-  justify-content: center;
+body .fonctionnement .etapes li::before {
+  counter-increment: compteListe 1;
+  content: counter(compteListe) " ";
   background: #9356dc;
   height: 1.5rem;
   width: 1.5rem;
-  left: -0.75rem;
   border-radius: 100px;
+  display: flex;
+  justify-content: center;
   align-items: center;
   color: #fff;
   position: absolute;
-  counter-increment: compteListe 1;
-  content: counter(compteListe) " ";
+  left: -0.75rem;
+}
+body .fonctionnement .etapes i {
+  margin-right: 1em;
+  color: #7e7e7e;
 }
 body .affiche-restaurants {
   background-color: #f6f6f6;
   padding: 2rem 1rem;
 }
 body .affiche-restaurants .titre-resto {
-  max-width: 1280px;
+  max-width: 1420px;
   margin: auto;
   position: relative;
+  font-size: 115%;
+}
+body .affiche-restaurants .titre-resto h2 {
+  margin: 0;
 }
 body .affiche-restaurants .liste-restaurants {
   column-gap: 2rem;
   row-gap: 2rem;
-  max-width: 1280px;
+  max-width: 1500px;
   margin: auto;
   position: relative;
   display: flex;
@@ -237,11 +237,21 @@ body .affiche-restaurants .description .bouton-coeur:hover .fas {
   font-size: 1.2rem;
   margin: 0 0 1rem;
 }
+@media (max-width: 800px) {
+  .footer .footer-logo {
+    text-align: start;
+  }
+}
 .footer .liste {
   list-style: none;
   text-align: center;
   padding: 0;
   margin: 0;
+}
+@media (max-width: 800px) {
+  .footer .liste {
+    text-align: start;
+  }
 }
 .footer .clique {
   margin-top: 0;
@@ -252,6 +262,76 @@ body .affiche-restaurants .description .bouton-coeur:hover .fas {
 .footer .clique i {
   width: 1.2rem;
   margin-right: 0.5rem;
+}
+
+.chargement {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  display: flex;
+  animation: disparition 3500ms forwards;
+}
+
+.placement {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #8f38f9;
+  animation: mouvement 2s linear infinite;
+}
+
+.animation::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #8f38f9;
+  animation: mouvement 3s linear infinite;
+}
+
+.animation::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid #8f38f9;
+}
+
+@keyframes mouvement {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes disparition {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+    display: none;
+    z-index: -1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

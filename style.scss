@@ -5,7 +5,6 @@ header {
     padding: 1em;
     text-align: center;
     position: relative;
-    z-index: 1000;
     box-shadow: 0 0 0.5em rgb(0 0 0 /25%);
 }
 body {
@@ -51,25 +50,22 @@ body {
         }
         .fonctionnement {
             padding: 2em 1em;
-            position: relative;
             margin: auto;
-            width: 65%;
+            max-width: 1280px;
+            position: relative;
             @media (max-width: 800px) {
                 width: 95%;
             }
             h2 {
                 margin-top: 0;
-                padding-left: 2.5em;
                 @media (max-width: 800px) {
                     padding-left:0.5em;
                 }
             }
             .etapes {
                 display: flex;
-                margin: auto;
-                position: relative;
-                display: flex;
-                list-style: none;
+                margin: 0;
+                padding: 0;
                 counter-reset: compteListe;
                 @media (max-width: 800px) {
                     flex-direction: column;
@@ -85,22 +81,23 @@ body {
                     padding: 1.5em 2em;
                     border-radius: 1em;
                     position: relative;
-                }
-                i {
-                    &::before {
-                        display: flex;
-                        justify-content: center;
+                    
+                    &::before{
+                        counter-increment: compteListe 1;
+                        content: counter(compteListe) " ";
                         background: #9356dc;
                         height: 1.5rem;
                         width: 1.5rem;
-                        left: -0.75rem;
                         border-radius: 100px;
+                        display: flex;
+                        justify-content: center;
                         align-items: center;
                         color: #fff;
                         position: absolute;
-                        counter-increment: compteListe 1;
-                        content: counter(compteListe) " ";
+                        left: -0.75rem;
                     }
+                }
+                i {
                     margin-right: 1em;
                     color: #7e7e7e;
                 }
@@ -111,14 +108,18 @@ body {
         padding: 2rem 1rem;
 
         .titre-resto {
-            max-width: 1280px;
+            max-width: 1420px;
             margin: auto;
             position: relative;
+            font-size: 115%;
+            h2 {
+                margin: 0;
+            }
         }
         .liste-restaurants {
             column-gap: 2rem;
             row-gap: 2rem;
-            max-width: 1280px;
+            max-width: 1500px;
             margin: auto;
             position: relative;
             display: flex;
@@ -236,12 +237,18 @@ body {
         font-family: Shrikhand,"cursive";
         font-size: 1.2rem;
         margin: 0 0 1rem;
+        @media (max-width:800px){
+            text-align: start;
+        }
     }
     .liste {
         list-style: none;
         text-align: center;
         padding: 0;
         margin: 0;
+        @media (max-width:800px){
+            text-align: start;
+        }
     }
     .clique {
         margin-top: 0;
@@ -254,3 +261,74 @@ body {
         margin-right: 0.5rem;
     }
 }
+
+.chargement {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    animation: disparition 3500ms forwards;
+}
+
+.placement {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animation {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #8f38f9;
+    animation: mouvement 2s linear infinite;
+}
+
+
+.animation::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #8f38f9;
+    animation: mouvement 3s linear infinite;
+}
+
+.animation::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid #8f38f9;
+}
+    @keyframes mouvement {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes disparition {
+        from {
+            opacity: 100%;
+        }
+        to {
+            opacity: 0%;
+            display: none;
+            z-index: -1;
+        }
+    }

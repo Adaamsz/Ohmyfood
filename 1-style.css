@@ -88,11 +88,17 @@ body .menu {
   padding: 0 1em;
   width: 100%;
 }
+@media (max-width: 800px) {
+  .liste-menu {
+    padding: 0;
+  }
+}
 
 .les-menus {
   column-gap: 1em;
   display: flex;
   justify-content: space-around;
+  margin-left: 10px;
 }
 
 .validation {
@@ -105,6 +111,22 @@ body .menu {
   transition-duration: 0.5s;
 }
 
+@media (max-width: 1100px) {
+  .les-menus {
+    flex-wrap: wrap;
+  }
+  .liste-menu {
+    width: 44%;
+  }
+  .dessert {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .liste-menu {
+    width: 100%;
+  }
+}
 .iconev {
   height: 1.6rem;
   width: 1.6rem;
@@ -121,54 +143,19 @@ body .menu {
   color: #99e2d0;
 }
 
-.d0 {
-  animation-delay: 0s;
-}
-
-.d1 {
-  animation-delay: 1s;
-}
-
-.d2 {
-  animation-delay: 2s;
-}
-
-.d3 {
-  animation-delay: 3s;
-}
-
-.d4 {
-  animation-delay: 4s;
-}
-
-.d5 {
-  animation-delay: 5s;
-}
-
-.d6 {
-  animation-delay: 6s;
-}
-
-.d7 {
-  animation-delay: 7s;
-}
-
-.d8 {
-  animation-delay: 8s;
-}
-
 .le-menu {
   background-color: #fff;
+  box-shadow: 0.25em 0.25em 1em rgba(0, 0, 0, 0.1);
   padding: 1em;
   display: flex;
   border-radius: 0.75em;
   margin: 1em 0;
-  box-shadow: 0.25em 0.25em 1em rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
   max-width: 100%;
   animation: apparition 0.75s;
-  animation-timing-function: cubic-bezier(0.5, 1.58, 0.34, 0.82);
+  animation-timing-function: cubic-bezier(0, 0.99, 0.6, 0.9);
+  animation-fill-mode: both;
 }
 @media (max-width: 800px) {
   .le-menu {
@@ -182,11 +169,25 @@ body .menu {
   transform: rotate(0deg);
 }
 @keyframes apparition {
-  0% {
+  from {
     transform: scale(0);
+    opacity: 0%;
   }
-  100% {
-    transform: scale(100%);
+  20% {
+    opacity: 10%;
+  }
+  40% {
+    opacity: 20%;
+  }
+  80% {
+    opacity: 60%;
+  }
+  90% {
+    opacity: 80%;
+  }
+  to {
+    transform: scale(1);
+    opacity: 100%;
   }
 }
 .le-menu .texte-description {
@@ -219,7 +220,12 @@ body .menu {
   font-size: 2em;
   position: absolute;
   right: 1.75em;
-  top: 5%;
+  top: 3.1%;
+}
+@media (max-width: 800px) {
+  .bouton-coeur i {
+    top: 1.75%;
+  }
 }
 .bouton-coeur .fas {
   color: transparent;
@@ -243,7 +249,7 @@ body .menu {
   background-color: #686868;
   background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
   color: #fff;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 5.5rem;
   font-weight: 500;
   font-size: 1.1rem;
   border-radius: 100px;
@@ -252,9 +258,13 @@ body .menu {
   transition: 200ms;
   box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.25);
 }
+.bouton-degrade .commander:hover {
+  background-color: #fff;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
+}
 @media (max-width: 800px) {
   .bouton-degrade .commander {
-    width: 25%;
+    padding: 0.75rem 2.5rem;
   }
 }
 
@@ -306,6 +316,42 @@ body .menu {
 .footer .clique i {
   width: 1.2em;
   margin-right: 0.5em;
+}
+
+.d0 {
+  animation-delay: 0s;
+}
+
+.d1 {
+  animation-delay: 0.1s;
+}
+
+.d2 {
+  animation-delay: 0.2s;
+}
+
+.d3 {
+  animation-delay: 0.3s;
+}
+
+.d4 {
+  animation-delay: 0.4s;
+}
+
+.d5 {
+  animation-delay: 0.5s;
+}
+
+.d6 {
+  animation-delay: 0.6s;
+}
+
+.d7 {
+  animation-delay: 0.7s;
+}
+
+.d8 {
+  animation-delay: 0.8s;
 }
 
 /*# sourceMappingURL=1-style.css.map */
