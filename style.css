@@ -571,10 +571,16 @@ body .bouton-degrade .commander:hover {
   }
 }
 .footer .clique {
-  margin-top: 0;
   margin: 0.5em 0;
   color: #fff;
+}
+.footer .clique a {
+  color: #fff;
   text-decoration: none;
+}
+.footer .clique:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .footer .clique i {
   width: 1.2rem;

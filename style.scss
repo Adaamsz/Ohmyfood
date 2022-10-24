@@ -591,10 +591,18 @@ body {
         }
     }
     .clique {
-        margin-top: 0;
         margin: 0.5em 0;
         color: #fff;
-        text-decoration: none;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
     .clique i {
         width: 1.2rem;
