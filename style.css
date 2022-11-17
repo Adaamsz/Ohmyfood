@@ -118,6 +118,9 @@ body .fonctionnement .etapes {
     padding-left: 0%;
   }
 }
+body .fonctionnement .etapes :hover {
+  background-color: #f5edff;
+}
 body .fonctionnement .etapes li {
   display: flex;
   flex: 1;
